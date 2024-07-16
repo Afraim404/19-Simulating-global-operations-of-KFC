@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e852f7-b07f-40a6-bcad-6fe443b8b33c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/fdpuser3/OnlineCustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/fdpuser3/OnlineCustomer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fdpuser3/fdpuser3/AppendableObjectOutputStream.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fdpuser3/fdpuser3/FDPInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fdpuser3/fdpuser3/FoodDeliveryPersonnelUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fdpuser3/fdpuser3/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/fdpuser3/fdpuser3/OrderFood.java" beforeDir="false" />
-    </list>
+    <list default="true" id="07e852f7-b07f-40a6-bcad-6fe443b8b33c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +41,17 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sakib\Downloads\19-Simulating-global-operations-of-KFC2\src\main\resources\com\example\fdpuser3" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.fdpuser3" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.fdpuser3.fdpuser3" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,7 +70,7 @@
       <updated>1720993787106</updated>
       <workItem from="1720993789179" duration="168000" />
       <workItem from="1721061105269" duration="343000" />
-      <workItem from="1721115280680" duration="993000" />
+      <workItem from="1721115280680" duration="1291000" />
     </task>
     <servers />
   </component>
