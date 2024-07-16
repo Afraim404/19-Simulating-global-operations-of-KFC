@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1275.0" style="-fx-background-color: #1c5db7;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fdpuser3.OnlineCustomerController">
+   <left>
+      <VBox prefHeight="629.0" prefWidth="181.0" spacing="8.0" style="-fx-background-color: #1c5db7;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#orderFoodButton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Order Food" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#pickUpButton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Pick Up" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cancelOrderButton" prefHeight="54.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Cancel / Delay Order" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#tipGivingButton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Give a Tip" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#rateFoodButton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Rate Food" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#orderHistory" prefHeight="53.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Check Order History" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#reportButton" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Report" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#helpButton" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Help" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#backButon" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: #1f4a86;" text="Back" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane prefHeight="442.0" prefWidth="401.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="OrderPane" layoutX="6.0" layoutY="2.0" prefHeight="619.0" prefWidth="1013.0" visible="false">
+               <children>
+                  <TableView fx:id="tableViewId" layoutX="352.0" layoutY="28.0" prefHeight="177.0" prefWidth="609.0">
+                     <columns>
+                        <TableColumn fx:id="foodIdCol" prefWidth="94.0" text="Food ID" />
+                        <TableColumn fx:id="foodNameColId" minWidth="0.0" prefWidth="210.0" text="Food Name" />
+                        <TableColumn fx:id="deliveryTypeColId" minWidth="0.0" prefWidth="111.33331298828125" text="Price/Quantity" />
+                        <TableColumn fx:id="quantityColId" minWidth="0.0" prefWidth="99.3333740234375" text="Given Quantity" />
+                        <TableColumn fx:id="subTotalColId" minWidth="0.0" prefWidth="94.6666259765625" text=" = subTotal" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="27.0" layoutY="146.0" mnemonicParsing="false" onAction="#placeOrderButton" prefHeight="13.0" prefWidth="135.0" style="-fx-background-color: #1f4a86;" text="Place Order" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="27.0" layoutY="192.0" mnemonicParsing="false" onAction="#viewIntoTableButton" prefHeight="56.0" prefWidth="111.0" style="-fx-background-color: #1f4a86;" text="View into Table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="selectFoodTypeComboBox" layoutX="27.0" layoutY="28.0" prefWidth="150.0" promptText="Select Food Type" />
+                  <ComboBox fx:id="selectQuantityComboBox" layoutX="27.0" layoutY="73.0" prefWidth="150.0" promptText="Select Quantity" />
+                  <Label fx:id="totalPriceLabelId" layoutX="191.0" layoutY="150.0" prefHeight="29.0" prefWidth="119.0" style="-fx-background-color: #ffffff;" text="Total Price to be paid" textFill="#4c52ff" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="pickUpPane" prefHeight="619.0" prefWidth="1081.0">
+               <children>
+                  <TableView fx:id="tableViewId1" layoutX="58.0" layoutY="87.0" prefHeight="203.0" prefWidth="886.0">
+                     <columns>
+                        <TableColumn fx:id="foodIdCol1" prefWidth="94.0" text="Food ID" />
+                        <TableColumn fx:id="foodNameColId1" minWidth="0.0" prefWidth="224.66665649414062" text="Food Name" />
+                        <TableColumn fx:id="deliveryTypeColId1" minWidth="0.0" prefWidth="106.66668701171875" text="Price/Quantity" />
+                        <TableColumn fx:id="quantityColId1" minWidth="0.0" prefWidth="105.3333740234375" text="Given Quantity" />
+                        <TableColumn fx:id="subTotalColId1" minWidth="0.0" prefWidth="96.66668701171875" text=" = subTotal" />
+                        <TableColumn fx:id="pickUpHrColId" minWidth="0.0" prefWidth="94.0" text="pickUp Hour" />
+                        <TableColumn minWidth="0.0" prefWidth="59.33331298828125" text="AM/PM" />
+                        <TableColumn fx:id="pickUpHrColId1" minWidth="0.0" prefWidth="106.0" text="pickUp Min" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="198.0" layoutY="385.0" mnemonicParsing="false" onAction="#pickUpOrderButton" prefHeight="13.0" prefWidth="135.0" style="-fx-background-color: #1f4a86;" text="Pick Up" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="58.0" layoutY="367.0" mnemonicParsing="false" onAction="#viewIntoTableButton" prefHeight="56.0" prefWidth="111.0" style="-fx-background-color: #1f4a86;" text="View into Table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="selectFoodTypeComboBox1" layoutX="27.0" layoutY="28.0" prefWidth="150.0" promptText="Select Food Type" />
+                  <ComboBox fx:id="selectQuantityComboBox1" layoutX="206.0" layoutY="28.0" prefWidth="150.0" promptText="Select Quantity" />
+                  <Label fx:id="totalPriceLabelId1" layoutX="58.0" layoutY="295.0" prefHeight="29.0" prefWidth="119.0" style="-fx-background-color: #ffffff;" text="Total Price to be paid" textFill="#4c52ff" />
+                  <ComboBox fx:id="selectPickUpHourComboBox" layoutX="391.0" layoutY="28.0" prefWidth="150.0" promptText="Select Pick Up Hour" />
+                  <RadioButton layoutX="391.0" layoutY="63.0" mnemonicParsing="false" text="AM" textFill="WHITE" />
+                  <RadioButton layoutX="466.0" layoutY="63.0" mnemonicParsing="false" text="PM" textFill="WHITE" />
+                  <ComboBox fx:id="selectPickUpMinComboBox1" layoutX="578.0" layoutY="28.0" prefWidth="150.0" promptText="Select Pick Up Hour" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="cancelOrdersPane" layoutX="14.0" layoutY="14.0" prefHeight="542.0" prefWidth="1002.0" style="-fx-background-color: #afdcc9;" visible="false">
+               <children>
+                  <Button layoutX="46.0" layoutY="250.0" mnemonicParsing="false" onAction="#CancelButtonCheckorderPane" prefHeight="41.0" prefWidth="206.0" style="-fx-background-color: #1f4a86;" text="cancel Order" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="tableviewCancelOrderPane" layoutX="160.0" layoutY="21.0" prefHeight="200.0" prefWidth="819.0">
+                     <columns>
+                        <TableColumn fx:id="packageColCancelOrderPane" prefWidth="215.33328247070312" text="Package" />
+                        <TableColumn fx:id="addressColCancelOrderPane" prefWidth="276.66668701171875" text="Address" />
+                        <TableColumn fx:id="deliveryColHrCancelOrderPane" prefWidth="110.66668701171875" text="Delivery Time (hr )" />
+                        <TableColumn fx:id="deliveryMinColCancelOrderPane" prefWidth="118.0" text="Delivery Time (min)" />
+                        <TableColumn fx:id="DeliveryChargeColCancelOrderPane" prefWidth="98.66668701171875" text="Delivery Charge" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="46.0" layoutY="319.0" mnemonicParsing="false" onAction="#delayButtonCheckorderPane" prefHeight="41.0" prefWidth="240.0" style="-fx-background-color: #1f4a86;" text="Submit Delayed time" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="submitApplicationPane" prefHeight="542.0" prefWidth="1002.0" style="-fx-background-color: #afd0c9;" visible="false">
+               <children>
+                  <TextField fx:id="textFieldSubmitButton" layoutX="77.0" layoutY="52.0" prefHeight="313.0" prefWidth="570.0" />
+                  <Button layoutX="77.0" layoutY="388.0" mnemonicParsing="false" onAction="#sendButtonSubmitAApplication" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: #1f4a86;" text="Send" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="incomePane" prefHeight="542.0" prefWidth="1002.0" style="-fx-background-color: #afd999;" visible="false">
+               <children>
+                  <DatePicker fx:id="startDateIncomeReport" layoutX="51.0" layoutY="66.0" promptText="Select Start Date" />
+                  <DatePicker fx:id="endDateIncomeReport" layoutX="51.0" layoutY="109.0" promptText="Select End Date" />
+                  <BarChart fx:id="barChartIncomeReportId" layoutX="318.0" layoutY="51.0" visible="false">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+                  <LineChart fx:id="lineChartIncomeReportId" layoutX="318.0" layoutY="21.0" prefHeight="405.0" prefWidth="569.0" title="LineChart" visible="false">
+                     <xAxis>
+                        <CategoryAxis label="days" side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis label="taka" side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+                  <Button layoutX="51.0" layoutY="152.0" mnemonicParsing="false" onAction="#LineChartIncomeReportButton" prefHeight="25.0" prefWidth="176.0" text="Create BarChart" />
+                  <Button layoutX="51.0" layoutY="198.0" mnemonicParsing="false" onAction="#barChartIncomeReportButton" prefHeight="25.0" prefWidth="176.0" text="Create LineChart" />
+                  <Button layoutX="51.0" layoutY="238.0" mnemonicParsing="false" onAction="#createPDF_IncomeReportButton" prefHeight="25.0" prefWidth="176.0" text="Create PDF" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="viewNoticePane" layoutX="14.0" layoutY="14.0" prefHeight="542.0" prefWidth="1002.0" style="-fx-background-color: #afd0c9;" visible="false">
+               <children>
+                  <Label fx:id="viewNoticeLabel" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="38.0" layoutY="83.0" prefHeight="381.0" prefWidth="505.0" style="-fx-background-color: #afd099;" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="viewNoticeTable" layoutX="562.0" layoutY="83.0" prefHeight="312.0" prefWidth="427.0">
+                     <columns>
+                        <TableColumn fx:id="dateColViewNoticeTable" prefWidth="112.0" text="Date" />
+                        <TableColumn fx:id="subjectColViewNoticeTable" prefWidth="238.66668701171875" text="Subject" />
+                        <TableColumn fx:id="typeColViewNoticeTable" prefWidth="72.6666259765625" text="type" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="49.0" layoutY="43.0" prefHeight="35.0" prefWidth="328.0" text="Notice From Manager" textFill="#380c0c" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="requestForEqupPane" layoutX="24.0" layoutY="24.0" prefHeight="542.0" prefWidth="1002.0" style="-fx-background-color: #afd0c9;" visible="false">
+               <children>
+                  <Label fx:id="requestForEquipLabel" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="38.0" layoutY="83.0" prefHeight="150.0" prefWidth="505.0" style="-fx-background-color: #afd099;" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="49.0" layoutY="43.0" prefHeight="35.0" prefWidth="421.0" text="Your request For Equipment Are Listed below :" textFill="#380c0c" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="pairOfGlovesReqForEquipPaneComboBox" layoutX="49.0" layoutY="259.0" prefWidth="150.0" promptText="Pair of Gloves " />
+                  <CheckBox fx:id="helmetReqForEquipPaneCheckBox" layoutX="51.0" layoutY="307.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #afd099;" text="A Helmet">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="bagReqForEquipPaneCheckBox" layoutX="51.0" layoutY="344.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #afd099;" text="A Bag">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="TShirtReqForEquipPaneCheckBox" layoutX="51.0" layoutY="386.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #afd099;" text="A T-Shirt">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="phoneCarrierReqForEquipPaneCheckBox" layoutX="51.0" layoutY="426.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="151.0" style="-fx-background-color: #afd099;" text="A Phone Carrier">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </CheckBox>
+                  <Button layoutX="279.0" layoutY="259.0" mnemonicParsing="false" onAction="#loadButtonReqForEquipPaneCheckBox" prefHeight="41.0" prefWidth="137.0" style="-fx-background-color: #96c2ff;" text="Load The Items" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="279.0" layoutY="323.0" mnemonicParsing="false" onAction="#submitButtonReqForEquipPaneCheckBox" prefHeight="41.0" prefWidth="137.0" style="-fx-background-color: #96c2ff;" text="Submit" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="helpPane" layoutX="38.0" layoutY="24.0" prefHeight="542.0" prefWidth="1002.0" style="-fx-background-color: #afd0c9;" visible="false">
+               <children>
+                  <Label fx:id="descriptionOfGoalsLabelHelpPane" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="38.0" layoutY="83.0" prefHeight="443.0" prefWidth="708.0" style="-fx-background-color: #afd099;" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="49.0" layoutY="43.0" prefHeight="35.0" prefWidth="490.0" text="Your Requested Button Feature will be shown below :" textFill="#380c0c" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="758.0" layoutY="196.0" mnemonicParsing="false" onAction="#howToRenewContract_ButtonHelpPane" prefHeight="41.0" prefWidth="228.0" style="-fx-background-color: #96c2ff;" text="How to renew contract?" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="758.0" layoutY="107.0" prefHeight="71.0" prefWidth="201.0" text="Click on the button to know the funtionalities :" textFill="#380c0c" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="758.0" layoutY="250.0" mnemonicParsing="false" onAction="#howTo_CheckOrders_ButtonHelpPane" prefHeight="41.0" prefWidth="228.0" style="-fx-background-color: #96c2ff;" text="How to check orders ?" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="758.0" layoutY="305.0" mnemonicParsing="false" onAction="#howToCancelOrders_ButtonHelpPane" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #96c2ff;" text="How to cancel orders?" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="758.0" layoutY="358.0" mnemonicParsing="false" onAction="#howToSubmitApplication_ButtonHelpPane" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #96c2ff;" text="How to submit application?" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="758.0" layoutY="413.0" mnemonicParsing="false" onAction="#howToViewNotice_ButtonHelpPane" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #96c2ff;" text="How to view notice?" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="758.0" layoutY="467.0" mnemonicParsing="false" onAction="#howToReqForEquip_ButtonHelpPane" prefHeight="41.0" prefWidth="230.0" style="-fx-background-color: #96c2ff;" text="How to get Equipment?" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Label prefHeight="94.0" prefWidth="701.0" text="ONLINE CUSTOMER USER DASHBOARD" textAlignment="CENTER" textFill="#f6fffd" wrapText="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Book Antiqua Italic" size="33.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
