@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cse.oop.projectkfc.HrManagerDashboardController">
+   <left>
+      <VBox fx:id="vbox1" prefHeight="400.0" prefWidth="156.0" style="-fx-background-color: C41230;" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Human Resource Manager" textFill="#f5d4b7">
+               <font>
+                  <Font name="Britannic Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#homeButtonOnAction" prefHeight="53.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Home" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#employeedictionaryButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Employee Dictionary" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#attendanceButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: pink;" text="Attendance" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="107.0" mnemonicParsing="false" onAction="#leaverequestButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Leave Request" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="151.0" mnemonicParsing="false" onAction="#trainingprogramsButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Training Programs" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="195.0" mnemonicParsing="false" onAction="#policiesButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Policies" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="239.0" mnemonicParsing="false" onAction="#surveyresultButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Survey Result" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="283.0" mnemonicParsing="false" onAction="#salaryButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Salary" textFill="#f5d4b7" />
+            <Button layoutX="10.0" layoutY="327.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" prefHeight="44.0" prefWidth="156.0" style="-fx-background-color: C41230;" text="Logout" textFill="#f5d4b7">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="anchorpanedashboard" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: F5D4B7;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="8.0" layoutY="6.0" prefHeight="34.0" prefWidth="165.0" text="Dashboard" textFill="#c41230bf">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
