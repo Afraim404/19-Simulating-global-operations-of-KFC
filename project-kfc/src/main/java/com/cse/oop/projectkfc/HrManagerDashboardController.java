@@ -11,6 +11,10 @@ public class HrManagerDashboardController
     @javafx.fxml.FXML
     private AnchorPane anchorpanedashboard;
 
+    private int a;
+
+
+
     @javafx.fxml.FXML
     public void initialize() {
     }
