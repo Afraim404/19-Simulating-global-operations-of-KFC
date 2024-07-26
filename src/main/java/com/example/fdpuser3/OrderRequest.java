@@ -6,14 +6,14 @@ package com.example.fdpuser3;
 //
 
 
-public class OrderFood {
+public class OrderRequest {
     private String packages;
     private String address;
     private String deliveryTimeHr;
     private String deliveryTimeMin;
     private float deliveryCharge;
 
-    public OrderFood(String packages, String address, String deliveryTimeHr, String deliveryTimeMin, float deliveryCharge) {
+    public OrderRequest(String packages, String address, String deliveryTimeHr, String deliveryTimeMin, float deliveryCharge) {
         this.packages = packages;
         this.address = address;
         this.deliveryTimeHr = deliveryTimeHr;
