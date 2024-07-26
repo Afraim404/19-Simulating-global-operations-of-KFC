@@ -5,36 +5,27 @@ package com.example.fdpuser3;
 //
 
 
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class FoodDeliveryPersonnelUserController {
+    String FDPID = "82qjnsa";
     ArrayList<FDPInfo> fdpInfoDataInputList = new ArrayList();
-    ArrayList<FDPInfo> fdpDataInFileList = new ArrayList();
+    ArrayList<Equipment> equipmentList = new ArrayList();
     File fdpFile = new File("FDPInfo.bin");
+    File equipmentFile = new File("Equipment.bin");
+
     @FXML
     private AnchorPane reviewContractPane;
     @FXML
@@ -88,17 +79,17 @@ public class FoodDeliveryPersonnelUserController {
     @FXML
     private AnchorPane submitApplicationPane;
     @FXML
-    private TableView<OrderFood> tableviewCheckOrderPane;
+    private TableView<OrderRequest> tableviewCheckOrderPane;
     @FXML
-    private TableColumn<OrderFood, String> packageColCheckOrderPane;
+    private TableColumn<OrderRequest, String> packageColCheckOrderPane;
     @FXML
-    private TableColumn<OrderFood, Integer> DeliveryChargeColCheckOrderPane;
+    private TableColumn<OrderRequest, Integer> DeliveryChargeColCheckOrderPane;
     @FXML
-    private TableColumn<OrderFood, String> deliveryMinColCheckOrderPane;
+    private TableColumn<OrderRequest, String> deliveryMinColCheckOrderPane;
     @FXML
-    private TableColumn<OrderFood, String> deliveryColHrCheckOrderPane;
+    private TableColumn<OrderRequest, String> deliveryColHrCheckOrderPane;
     @FXML
-    private TableColumn<OrderFood, String> addressColCheckOrderPane;
+    private TableColumn<OrderRequest, String> addressColCheckOrderPane;
     @FXML
     private TextField textFieldSubmitButton;
     @FXML
@@ -136,7 +127,7 @@ public class FoodDeliveryPersonnelUserController {
     @FXML
     private TableColumn dateColViewNoticeTable;
     @FXML
-    private ComboBox pairOfGlovesReqForEquipPaneComboBox;
+    private ComboBox<Integer> pairOfGlovesReqForEquipPaneComboBox;
     @FXML
     private TableColumn subjectColViewNoticeTable;
     @FXML
@@ -150,16 +141,32 @@ public class FoodDeliveryPersonnelUserController {
     @FXML
     private CheckBox TShirtReqForEquipPaneCheckBox;
     @FXML
+    private ComboBox delayedTimeComboBox;
+    @FXML
+    private Button helpButtonId;
+    @FXML
     private AnchorPane helpPane;
     @FXML
     private Label descriptionOfGoalsLabelHelpPane;
-    @FXML
-    private Button helpButtonId;
 
     public FoodDeliveryPersonnelUserController() throws FileNotFoundException {
     }
 
     public void initialize() {
+
+        // for All the panes to be invisible
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
+
+        // for Equipment ..
+        pairOfGlovesReqForEquipPaneComboBox.getItems().addAll(0,1,2,3);
+        /// for Review Contract ..
         this.deliveryAreaId.getItems().addAll(new String[]{"Dhanmondi", "Uttora", "Gulshan", "Mirpur", "Mohammadpur", "Tejgoan"});
         this.deliveryShiftId.getItems().addAll(new String[]{"Morning'10-12'", "Noon'12-15", "Afternoon'15-18", "Evening'18-20", "Night'20-23"});
         this.deliveryTypeId.getItems().addAll(new String[]{"By Walk", "By cycle", "By Motor Cycle", "By Car"});
@@ -177,8 +184,21 @@ public class FoodDeliveryPersonnelUserController {
         this.addressColCheckOrderPane.setCellValueFactory(new PropertyValueFactory("address"));
     }
 
+
+
+
+    ////////////////////////////         Review Contract          //////////////////////
     @FXML
     public void reviewContractButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(true);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
+
     }
 
     @FXML
@@ -244,7 +264,7 @@ public class FoodDeliveryPersonnelUserController {
             ((ObjectOutputStream)oos).close();
             Alert a = new Alert(AlertType.ERROR);
             a.setTitle("Error");
-            a.setContentText("Fill is not Written.");
+            a.setContentText("File is not written.");
             a.showAndWait();
         }
 
@@ -252,11 +272,17 @@ public class FoodDeliveryPersonnelUserController {
 
     @FXML
     public void checkOrdersButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(true);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
     }
 
-    @FXML
-    public void LoadButtonCheckorderPane(ActionEvent actionEvent) {
-    }
+
 
     @FXML
     public void pickUpCheckorderPane(ActionEvent actionEvent) {
@@ -264,31 +290,146 @@ public class FoodDeliveryPersonnelUserController {
 
     @FXML
     public void incomeReportButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(true);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
+
     }
 
     @FXML
     public void cancelDelayButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(true);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
     }
 
-    /** @deprecated */
-    @Deprecated
-    public void reportToManagerButton(ActionEvent actionEvent) {
-    }
+
+    //////////////////////////       req for Equipment            /////////////////
 
     @FXML
     public void reqEquipmentButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(true);
     }
+
+
+    @FXML
+    public void loadButtonReqForEquipPane(ActionEvent actionEvent) throws IOException {
+        try {
+            Equipment.setFDPID(FDPID);
+            equipmentList.add(new Equipment(pairOfGlovesReqForEquipPaneComboBox.getValue(), helmetReqForEquipPaneCheckBox.isSelected(), bagReqForEquipPaneCheckBox.isSelected(), TShirtReqForEquipPaneCheckBox.isSelected(), phoneCarrierReqForEquipPaneCheckBox.isSelected()));
+            requestForEquipLabel.setText(equipmentList.getLast().toString());
+        } catch(Exception e) {
+            Alert a = new Alert(AlertType.ERROR);
+            a.setTitle("Error");
+            a.setContentText("Gloves ComboBox Must be Filled.");
+            a.showAndWait();
+        }
+    }
+    @FXML
+    public void submitButtonReqForEquipPane(ActionEvent actionEvent) throws IOException {
+        ObjectOutputStream oos = null;
+
+        try {
+            Alert alert;
+            FileOutputStream fos;
+            if (this.equipmentFile.exists()) {
+                fos = new FileOutputStream(this.equipmentFile, true);
+                oos = new AppendableObjectOutputStream(fos);
+                alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Approved");
+                alert.setContentText("Appendable used.");
+                alert.showAndWait();
+            } else {
+                fos = new FileOutputStream(this.equipmentFile, true);
+                oos = new ObjectOutputStream(fos);
+                alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Approved");
+                alert.setContentText("Appendable not Used.");
+                alert.showAndWait();
+            }
+
+            alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Approved");
+            alert.setContentText("Fill is written.");
+            alert.showAndWait();
+
+            if (! equipmentList.isEmpty()) {
+                    oos.writeObject(equipmentList.getLast());
+
+            }
+            else{
+                oos.close();
+                Alert a = new Alert(AlertType.ERROR);
+                a.setTitle("Error");
+                a.setContentText("Please, Load the items before submitting.");
+                a.showAndWait();
+
+            }
+
+            equipmentList.clear();
+            oos.close();
+        } catch (Exception e) {
+            oos.close();
+            Alert a = new Alert(AlertType.ERROR);
+            a.setTitle("Error");
+            a.setContentText("Fill is not Written.");
+            a.showAndWait();
+        }
+
+    }
+
 
     @FXML
     public void submitAppButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(true);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
     }
 
     @FXML
-    public void viewNoticeButtonI(ActionEvent actionEvent) {
+    public void viewNoticeButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(true);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
     }
 
     @FXML
     public void backButon(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(false);
+        requestForEqupPane.setVisible(false);
     }
 
     @FXML
@@ -311,16 +452,21 @@ public class FoodDeliveryPersonnelUserController {
     public void LineChartIncomeReportButton(ActionEvent actionEvent) {
     }
 
-    @FXML
-    public void loadButtonReqForEquipPaneCheckBox(ActionEvent actionEvent) {
-    }
 
     @FXML
-    public void submitButtonReqForEquipPaneCheckBox(ActionEvent actionEvent) {
+    public void createPDF_IncomeReportButton(ActionEvent actionEvent) {
     }
 
     @FXML
     public void helpButton(ActionEvent actionEvent) {
+        reviewContractPane.setVisible(false);
+        checkOrdersPane.setVisible(false);
+        cancelOrdersPane.setVisible(false);
+        viewNoticePane.setVisible(false);
+        submitApplicationPane.setVisible(false);
+        incomePane.setVisible(false);
+        helpPane.setVisible(true);
+        requestForEqupPane.setVisible(false);
     }
 
     @FXML
@@ -345,9 +491,5 @@ public class FoodDeliveryPersonnelUserController {
 
     @FXML
     public void howTo_CheckOrders_ButtonHelpPane(ActionEvent actionEvent) {
-    }
-
-    @FXML
-    public void createPDF_IncomeReportButton(ActionEvent actionEvent) {
     }
 }
