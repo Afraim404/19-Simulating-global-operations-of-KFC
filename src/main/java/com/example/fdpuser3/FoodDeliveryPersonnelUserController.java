@@ -202,7 +202,7 @@ public class FoodDeliveryPersonnelUserController {
     }
 
     @FXML
-    public void viewIntoTableButton(ActionEvent actionEvent) {
+    public void loadIntoTableButtonReviewContractPane(ActionEvent actionEvent) {
         this.tableViewId.getItems().clear();
         if (!this.nameId.getText().isEmpty() && !this.ageId.getText().isEmpty() && this.deliveryAreaId.getValue() != null && this.deliveryShiftId.getValue() != null && this.deliveryTypeId.getValue() != null) {
             try {
@@ -225,11 +225,13 @@ public class FoodDeliveryPersonnelUserController {
     }
 
     @FXML
-    public void submitButton(ActionEvent actionEvent) throws IOException {
+    public void submitButtonReviewContractPane(ActionEvent actionEvent) throws IOException {
         ObjectOutputStream oos = null;
+        Alert alert;
 
+        if (! tableViewId.getItems().isEmpty()){
         try {
-            Alert alert;
+
             FileOutputStream fos;
             if (this.fdpFile.exists()) {
                 fos = new FileOutputStream(this.fdpFile, true);
@@ -259,6 +261,7 @@ public class FoodDeliveryPersonnelUserController {
             }
 
             this.fdpInfoDataInputList.clear();
+            tableViewId.getItems().clear();
             ((ObjectOutputStream)oos).close();
         } catch (Exception var6) {
             ((ObjectOutputStream)oos).close();
@@ -268,6 +271,15 @@ public class FoodDeliveryPersonnelUserController {
             a.showAndWait();
         }
 
+        }
+        else{
+            alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("The table is empty.\n" +
+                    "Fill the table then enter Submit");
+            alert.showAndWait();
+
+        }
     }
 
     @FXML

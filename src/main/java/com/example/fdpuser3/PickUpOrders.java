@@ -3,13 +3,13 @@ package com.example.fdpuser3;
 import java.io.Serializable;
 
 public class PickUpOrders implements Serializable {
-    private String foodId,food_BeverageName;
-    private float food_BeveragePrice;
-    private int food_BeverageQuantity;
-    private float subTotal;
-    private int pickUpHour;
-    private String AmPm;
-    private int pickupMin;
+     String foodId,food_BeverageName;
+     float food_BeveragePrice;
+     int food_BeverageQuantity;
+     float subTotal;
+     int pickUpHour;
+     String AmPm;
+     int pickupMin;
 
     public PickUpOrders(String amPm, String food_BeverageName, float food_BeveragePrice, int food_BeverageQuantity, int pickUpHour, int pickupMin) {
         AmPm = amPm;
@@ -73,6 +73,5 @@ public class PickUpOrders implements Serializable {
     public void setPickupMin(int pickupMin) {
         this.pickupMin = pickupMin;
     }
-
 
 }
